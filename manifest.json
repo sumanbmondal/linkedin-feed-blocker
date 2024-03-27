@@ -1,0 +1,34 @@
+{
+    "name": "Linkedin Feed Blocker",
+    "version": "1.0.0",
+    "description": "Blocks Linkedin feed",
+    "permissions": ["storage", "tabs", "activeTab"],
+    "host_permissions": ["*://*.linkedin.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.linkedin.com/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/play.png"
+        ],
+        "matches": ["*://*.linkedin.com/*"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "assets/logo1.png",
+        "24": "assets/logo1.png",
+        "32": "assets/logo1.png"
+      },
+      "default_title": "Linkedin Feed Blocker",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+}
